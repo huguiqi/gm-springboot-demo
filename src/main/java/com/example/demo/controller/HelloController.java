@@ -24,4 +24,6 @@ public class HelloController {
         Car car =  carMapper.search("别摸我",null).iterator().next();
         return "Greetings from Spring Boot!" + car;
     }
+
+
 }

@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.bean.Car;
+import com.example.demo.bean.House;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -14,13 +15,12 @@ import java.util.Collection;
  */
 
 @Mapper
-public interface CarMapper {
+public interface HouseMapper {
 
-    @Insert("insert into car(make,model,year) values(#{make},#{model},#{year})")
-    void insert(Car car);
+    @Insert("insert into T_HOUSE(name,square,city) values(#{name},#{square},#{city})")
+    void insert(House house);
 
-    @Select("select * from CAR")
-    Collection<Car> selectAll();
+    @Select("select * from T_HOUSE")
+    Collection<House> selectAll();
 
-    Collection<Car> search(@Param("make") String make, @Param("model") String model);
 }
