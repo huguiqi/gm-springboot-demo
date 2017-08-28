@@ -1,11 +1,6 @@
+package com.example.demo;
 
-import com.alibaba.fastjson.TypeReference;
-import com.myjf.workpj.vo.*;
-import com.myjf.common.restClient.RestClient;
-import com.myjf.common.restClient.domain.BaseResponse;
-import com.myjf.constant.CommonConstant;
-import com.myjf.workpj.vo.type.AppraiseStatus;
-import com.myjf.workpj.vo.type.BehaviorType;
+import com.example.demo.common.restClient.RestClient;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -15,21 +10,16 @@ import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.util.Assert;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  * Created by guiqi on 2017/8/10.
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath*:applicationContext-test.xml" })
+//@ContextConfiguration(locations = { "classpath*:applicationContext-test.xml" })
 @WebAppConfiguration
 @Ignore
-public class JFRestClientTest{
+public class JFRestClientTest {
 
     @Autowired
     private RestClient restClient;
