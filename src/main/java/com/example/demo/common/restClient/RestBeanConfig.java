@@ -1,5 +1,6 @@
 package com.example.demo.common.restClient;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestFactory;
@@ -21,8 +22,21 @@ import java.util.List;
 @Configuration
 public class RestBeanConfig {
 
+
+//    @Bean
+//    public List<HttpMessageConverter<?>>  messageConverters(){
+//
+//        // 添加转换器
+//        List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
+//        messageConverters.add(new StringHttpMessageConverter(Charset.forName("UTF-8")));
+//        messageConverters.add(new FormHttpMessageConverter());
+//        messageConverters.add(new MappingJackson2HttpMessageConverter());
+//
+//        return messageConverters;
+//    }
+
     @Bean
-    public RestTemplate restTemplate(ClientHttpRequestFactory requestFactory, List<HttpMessageConverter<?>> messageConverters){
+    public RestTemplate restTemplate(ClientHttpRequestFactory requestFactory, @Autowired List<HttpMessageConverter<?>> messageConverters){
         RestTemplate restTemplate = new RestTemplate(messageConverters);
         restTemplate.setRequestFactory(requestFactory);
         restTemplate.setErrorHandler(new DefaultResponseErrorHandler());
@@ -35,18 +49,6 @@ public class RestBeanConfig {
         requestFactory.setReadTimeout(5000);
         requestFactory.setConnectTimeout(5000);
         return requestFactory;
-    }
-
-    @Bean
-    public List<HttpMessageConverter<?>>  messageConverters(){
-
-        // 添加转换器
-        List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
-        messageConverters.add(new StringHttpMessageConverter(Charset.forName("UTF-8")));
-        messageConverters.add(new FormHttpMessageConverter());
-        messageConverters.add(new MappingJackson2HttpMessageConverter());
-
-        return messageConverters;
     }
 
 

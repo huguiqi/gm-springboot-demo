@@ -1,24 +1,22 @@
 package com.example.demo;
 
 import com.example.demo.common.restClient.RestClient;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockHttpSession;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 /**
  * Created by guiqi on 2017/8/10.
  */
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@Disabled
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 //@ContextConfiguration(locations = { "classpath*:applicationContext-test.xml" })
 @WebAppConfiguration
-@Ignore
 public class JFRestClientTest {
 
     @Autowired
@@ -27,14 +25,14 @@ public class JFRestClientTest {
     @Autowired
     MockHttpSession session;
 
-    @Before
+    @BeforeEach
     public void setUp(){
         session.setAttribute("TokenId","VIANu_09zaV7RvBr6RwXgoKhjZWw22vuIC4yIYwJYvhycZqA3_HzXn56hKPuqvvNSAZIWrHQo7UYOTP309NDilSflcFVyDUPmv2I-GS-LEg");
     }
 
 
     @Test
-    @Ignore
+    @Disabled
     public void testPostForAddAppraise(){
 
 //        AppraiseVO dto =  new AppraiseVO();
@@ -60,7 +58,7 @@ public class JFRestClientTest {
 
 
     @Test
-//    @Ignore
+//    @Disabled
     public void testPostForModify(){
 
 //        AppraiseVO dto =  new AppraiseVO();
